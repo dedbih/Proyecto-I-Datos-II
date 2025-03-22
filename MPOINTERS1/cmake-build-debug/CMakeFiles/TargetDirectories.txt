@@ -1,0 +1,3 @@
+C:/Users/Lenovo/CLionProjects/MPOINTERS1/cmake-build-debug/CMakeFiles/MPOINTERS1.dir
+C:/Users/Lenovo/CLionProjects/MPOINTERS1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Lenovo/CLionProjects/MPOINTERS1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
