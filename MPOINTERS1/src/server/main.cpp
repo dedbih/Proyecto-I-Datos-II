@@ -1,8 +1,15 @@
 #include "MemoryManager.h"
 #include <iostream>
+#include <unistd.h>
+
+#ifdef _WIN32
+#include <winsock2.h>
+#pragma comment(lib, "ws2_32.lib") // Vincula la biblioteca de sockets en Windows
+#else
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <unistd.h>
+#include <arpa/inet.h>
+#endif
 
 int main() {
     int server_fd, new_socket;
