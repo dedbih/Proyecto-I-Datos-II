@@ -4,7 +4,7 @@ project(MPOINTERS1)
 set(CMAKE_CXX_STANDARD 17)
 
 # Include directories
-include_directories(include)
+include_directories("${CMAKE_SOURCE_DIR}/include")
 
 # Add the executable with correct file paths
 add_executable(MPOINTERS1

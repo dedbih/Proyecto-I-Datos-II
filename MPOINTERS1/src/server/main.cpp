@@ -11,11 +11,6 @@
 #include <arpa/inet.h>
 #endif
 
-class MemoryManager {
-public:
-    MemoryManager(size_t size) { /* Implementación aquí */ }
-    void handleClient(SOCKET clientSocket) { /* Implementación aquí */ }
-};
 
 int main() {
     WSADATA wsaData;
