@@ -11,29 +11,62 @@
 #include <arpa/inet.h>
 #endif
 
+class MemoryManager {
+public:
+    MemoryManager(size_t size) { /* Implementación aquí */ }
+    void handleClient(SOCKET clientSocket) { /* Implementación aquí */ }
+};
+
 int main() {
-    int server_fd, new_socket;
+    WSADATA wsaData;
+    SOCKET server_fd, new_socket;
     struct sockaddr_in address;
-    int opt = 1;
     int addrlen = sizeof(address);
 
-    server_fd = socket(AF_INET, SOCK_STREAM, 0);
-    setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+    // Inicializar Winsock
+    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+        std::cerr << "Error al inicializar Winsock" << std::endl;
+        return 1;
+    }
 
+    // Crear socket
+    server_fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (server_fd == INVALID_SOCKET) {
+        std::cerr << "Error al crear socket: " << WSAGetLastError() << std::endl;
+        WSACleanup();
+        return 1;
+    }
+
+    // Configurar dirección
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(8080);
 
-    bind(server_fd, (struct sockaddr *)&address, sizeof(address));
-    listen(server_fd, 3);
+    // Enlazar socket
+    if (bind(server_fd, (struct sockaddr*)&address, sizeof(address)) == SOCKET_ERROR) {
+        std::cerr << "Error en bind: " << WSAGetLastError() << std::endl;
+        closesocket(server_fd);
+        WSACleanup();
+        return 1;
+    }
+
+    // Escuchar conexiones
+    if (listen(server_fd, 3) == SOCKET_ERROR) {
+        std::cerr << "Error en listen: " << WSAGetLastError() << std::endl;
+        closesocket(server_fd);
+        WSACleanup();
+        return 1;
+    }
 
     std::cout << "Servidor corriendo en el puerto 8080..." << std::endl;
 
-    while ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))) {
+    while ((new_socket = accept(server_fd, (struct sockaddr*)&address, &addrlen)) != INVALID_SOCKET) {
         MemoryManager memMgr(10); // 10 MB de memoria
         memMgr.handleClient(new_socket);
-        close(new_socket);
+        closesocket(new_socket);
     }
 
+    closesocket(server_fd);
+    WSACleanup();
     return 0;
 }

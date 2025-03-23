@@ -1,5 +1,5 @@
-#include "MPointer.h"
 #include <iostream>
+#include "MPointer.h"
 
 struct Node {
     MPointer<int> data;
@@ -7,7 +7,7 @@ struct Node {
 
     Node(int value) : data(MPointer<int>::New()) {
         *data = value;
-        next = nullptr;
+        next = MPointer<Node>::New();
     }
 };
 

@@ -1,0 +1,5 @@
+# ninja log v6
+27	3352	7644617000272140	CMakeFiles/MPOINTERS1.dir/src/server/main.cpp.obj	28a2641d4c186173
+20	3476	7644617000206911	CMakeFiles/MPOINTERS1.dir/src/client/MPointer.cpp.obj	9a727e044471aecc
+33	2697	7644620337241469	CMakeFiles/MPOINTERS1.dir/src/server/main.cpp.obj	28a2641d4c186173
+40	2801	7644620337311342	CMakeFiles/MPOINTERS1.dir/src/server/MemoryManager.cpp.obj	bdab5d8952a05e0d

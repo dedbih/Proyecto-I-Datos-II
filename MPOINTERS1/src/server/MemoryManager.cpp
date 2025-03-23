@@ -1,8 +1,25 @@
 #include "MemoryManager.h"
+#include <winsock2.h>
+#include <ws2tcpip.h>
 #include <iostream>
-#include <ctime>
 #include <sstream>
 #include <fstream>
+#include <stdexcept>
+#include <cstdlib>
+
+#pragma comment(lib, "ws2_32.lib")
+
+class MemoryManager {
+private:
+    size_t memorySize;
+    char* memoryBlock;
+
+public:
+    MemoryManager(size_t sizeMB);
+    ~MemoryManager();
+    std::string generateDump();
+    void handleClient(SOCKET clientSocket);
+};
 
 MemoryManager::MemoryManager(size_t sizeMB) {
     memorySize = sizeMB * 1024 * 1024;  // Convertir MB a bytes
@@ -29,9 +46,9 @@ std::string MemoryManager::generateDump() {
     return dump.str();
 }
 
-void MemoryManager::handleClient(int clientSocket) {
+void MemoryManager::handleClient(SOCKET clientSocket) {
     char buffer[1024] = {0};
-    read(clientSocket, buffer, 1024);
+    recv(clientSocket, buffer, 1024, 0);
 
     std::string command(buffer);
     if (command == "DUMP") {
