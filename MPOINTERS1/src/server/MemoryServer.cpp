@@ -1,7 +1,7 @@
 //
 // Created by lasle on 3/30/2025.
 //
-
+#include "MemoryManager.h"
 #include "MemoryServer.h"
 #include <iostream>
 

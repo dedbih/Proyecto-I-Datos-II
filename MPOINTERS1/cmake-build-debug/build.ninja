@@ -62,6 +62,15 @@ build CMakeFiles/ServerExe.dir/src/server/MemoryManager.cpp.obj: CXX_COMPILER__S
   TARGET_COMPILE_PDB = CMakeFiles\ServerExe.dir\
   TARGET_PDB = ServerExe.pdb
 
+build CMakeFiles/ServerExe.dir/src/server/MemoryServer.cpp.obj: CXX_COMPILER__ServerExe_unscanned_ C$:/Users/lasle/Desktop/o-o/U/I$ Semestre$ 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/src/server/MemoryServer.cpp || cmake_object_order_depends_target_ServerExe
+  DEP_FILE = CMakeFiles\ServerExe.dir\src\server\MemoryServer.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I"C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/include"
+  OBJECT_DIR = CMakeFiles\ServerExe.dir
+  OBJECT_FILE_DIR = CMakeFiles\ServerExe.dir\src\server
+  TARGET_COMPILE_PDB = CMakeFiles\ServerExe.dir\
+  TARGET_PDB = ServerExe.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ServerExe
@@ -70,7 +79,7 @@ build CMakeFiles/ServerExe.dir/src/server/MemoryManager.cpp.obj: CXX_COMPILER__S
 #############################################
 # Link the executable ServerExe.exe
 
-build ServerExe.exe: CXX_EXECUTABLE_LINKER__ServerExe_ CMakeFiles/ServerExe.dir/src/server/main.cpp.obj CMakeFiles/ServerExe.dir/src/server/MemoryManager.cpp.obj
+build ServerExe.exe: CXX_EXECUTABLE_LINKER__ServerExe_ CMakeFiles/ServerExe.dir/src/server/main.cpp.obj CMakeFiles/ServerExe.dir/src/server/MemoryManager.cpp.obj CMakeFiles/ServerExe.dir/src/server/MemoryServer.cpp.obj
   LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ServerExe.dir
   POST_BUILD = cd .
@@ -116,6 +125,42 @@ build ClientExe.exe: CXX_EXECUTABLE_LINKER__ClientExe_ CMakeFiles/ClientExe.dir/
   TARGET_IMPLIB = libClientExe.dll.a
   TARGET_PDB = ClientExe.pdb
 
+# =============================================================================
+# Object build statements for EXECUTABLE target TestExe
+
+
+#############################################
+# Order-only phony target for TestExe
+
+build cmake_object_order_depends_target_TestExe: phony || .
+
+build CMakeFiles/TestExe.dir/src/test/ListTest.cpp.obj: CXX_COMPILER__TestExe_unscanned_ C$:/Users/lasle/Desktop/o-o/U/I$ Semestre$ 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/src/test/ListTest.cpp || cmake_object_order_depends_target_TestExe
+  DEP_FILE = CMakeFiles\TestExe.dir\src\test\ListTest.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I"C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/include"
+  OBJECT_DIR = CMakeFiles\TestExe.dir
+  OBJECT_FILE_DIR = CMakeFiles\TestExe.dir\src\test
+  TARGET_COMPILE_PDB = CMakeFiles\TestExe.dir\
+  TARGET_PDB = TestExe.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target TestExe
+
+
+#############################################
+# Link the executable TestExe.exe
+
+build TestExe.exe: CXX_EXECUTABLE_LINKER__TestExe_ CMakeFiles/TestExe.dir/src/test/ListTest.cpp.obj
+  LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\TestExe.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\TestExe.dir\
+  TARGET_FILE = TestExe.exe
+  TARGET_IMPLIB = libTestExe.dll.a
+  TARGET_PDB = TestExe.pdb
+
 
 #############################################
 # Utility command for edit_cache
@@ -146,6 +191,8 @@ build ClientExe: phony ClientExe.exe
 
 build ServerExe: phony ServerExe.exe
 
+build TestExe: phony TestExe.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -154,7 +201,7 @@ build ServerExe: phony ServerExe.exe
 #############################################
 # Folder: C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug
 
-build all: phony ServerExe.exe ClientExe.exe
+build all: phony ServerExe.exe ClientExe.exe TestExe.exe
 
 # =============================================================================
 # Built-in targets
