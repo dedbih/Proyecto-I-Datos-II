@@ -1,58 +1,40 @@
 #include "MemoryManager.h"
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#include <iostream>
-#include <sstream>
 #include <fstream>
-#include <stdexcept>
-#include <cstdlib>
-
-#pragma comment(lib, "ws2_32.lib")
-
-class MemoryManager {
-private:
-    size_t memorySize;
-    char* memoryBlock;
-
-public:
-    MemoryManager(size_t sizeMB);
-    ~MemoryManager();
-    std::string generateDump();
-    void handleClient(SOCKET clientSocket);
-};
+#include <sstream>
 
 MemoryManager::MemoryManager(size_t sizeMB) {
-    memorySize = sizeMB * 1024 * 1024;  // Convertir MB a bytes
+    memorySize = sizeMB * 1024 * 1024;
     memoryBlock = static_cast<char*>(malloc(memorySize));
-
-    if (!memoryBlock) {
-        throw std::runtime_error("Error al reservar memoria.");
-    }
+    if (!memoryBlock) throw std::runtime_error("Memory allocation failed");
 }
 
 MemoryManager::~MemoryManager() {
+    for (auto& entry : memory) delete entry.second;
     free(memoryBlock);
 }
 
-std::string MemoryManager::generateDump() {
-    std::ostringstream dump;
-    dump << "Estado de la memoria:\n";
-    dump << "Tamaño: " << memorySize << " bytes\n";
-
-    std::ofstream outFile("memory_dump.txt");
-    outFile << dump.str();
-    outFile.close();
-
-    return dump.str();
+MemoryManager& MemoryManager::getInstance(size_t sizeMB) {
+    static MemoryManager instance(sizeMB);
+    return instance;
 }
 
-void MemoryManager::handleClient(SOCKET clientSocket) {
-    char buffer[1024] = {0};
-    recv(clientSocket, buffer, 1024, 0);
-
-    std::string command(buffer);
-    if (command == "DUMP") {
-        std::string dump = generateDump();
-        send(clientSocket, dump.c_str(), dump.size(), 0);
+void MemoryManager::deallocate(int address) {
+    auto it = memory.find(address);
+    if (it != memory.end()) {
+        delete it->second;
+        memory.erase(it);
     }
+}
+
+size_t MemoryManager::remainingMemory() const {
+    return memorySize - (memory.size() * sizeof(void*));
+}
+
+std::string MemoryManager::generateDump() const {
+    std::ostringstream oss;
+    oss << "Memory Status:\n";
+    oss << "Total: " << memorySize << " bytes\n";
+    oss << "Used: " << memory.size() * sizeof(void*) << " bytes\n";
+    oss << "Available: " << remainingMemory() << " bytes\n";
+    return oss.str();
 }

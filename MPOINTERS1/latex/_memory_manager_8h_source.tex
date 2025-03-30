@@ -1,0 +1,35 @@
+\doxysection{Memory\+Manager.\+h}
+\hypertarget{_memory_manager_8h_source}{}\label{_memory_manager_8h_source}\index{include/MemoryManager.h@{include/MemoryManager.h}}
+\mbox{\hyperlink{_memory_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Lenovo\ on\ 22/3/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MEMORYMANAGER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MEMORYMANAGER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_memory_manager_abf5a876edcd857a7f98fcf319f80879e}{MemoryManager}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::unordered\_map<int,\ void*>\ memory;\ \textcolor{comment}{//\ Simulated\ memory\ storage}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ nextAddress\ =\ 0;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_memory_manager_abf5a876edcd857a7f98fcf319f80879e}{MemoryManager}}\&\ \mbox{\hyperlink{class_memory_manager_a6ef4e78f418249b220f55b9ef80d6d6f}{getInstance}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_memory_manager_a0a57120bfcf1c615ba8df839a7741c86}{allocate}}(T\ value);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ \ \ \ \ T\&\ \mbox{\hyperlink{class_memory_manager_a76c7885a6a7871886bc916d9edfa7749}{get}}(\textcolor{keywordtype}{int}\ address);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_ae486d2bff9871b169ec8a371317483d1}{deallocate}}(\textcolor{keywordtype}{int}\ address);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MEMORYMANAGER\_H}}
+\DoxyCodeLine{00029\ }
+
+\end{DoxyCode}

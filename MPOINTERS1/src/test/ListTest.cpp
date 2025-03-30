@@ -13,7 +13,7 @@ struct Node {
 
 void printList(MPointer<Node> head) {
     MPointer<Node> current = head;
-    while (current) {
+    while (current != nullptr) {
         std::cout << *current->data << " -> ";
         current = current->next;
     }

@@ -1,0 +1,45 @@
+\doxysection{MPointer.\+h}
+\hypertarget{_m_pointer_8h_source}{}\label{_m_pointer_8h_source}\index{include/MPointer.h@{include/MPointer.h}}
+\mbox{\hyperlink{_m_pointer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Lenovo\ on\ 22/3/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MPOINTER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MPOINTER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_memory_manager}{MemoryManager}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ address;\ \textcolor{comment}{//\ Simulated\ address}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_memory_manager}{MemoryManager}}*\ manager;\ \textcolor{comment}{//\ Pointer\ to\ the\ memory\ manager}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer}}()\ :\ address(-\/1)\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer<T>}}\ \mbox{\hyperlink{class_m_pointer_a190930f12de18a3c0cda0b9b692c9b7d}{New}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ T\&\ \mbox{\hyperlink{class_m_pointer_a4bd2cdecf1b341ac9486e75672c95101}{operator*}}();}
+\DoxyCodeLine{00025\ \ \ \ \ T*\ \mbox{\hyperlink{class_m_pointer_ae9ae81f64da36c13d0c823a04ad810a6}{operator-\/>}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer<T>}}\&\ \mbox{\hyperlink{class_m_pointer_a2c2e6d1ac7740c57f0e85f914d26419f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer<T>}}\&\ other);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_m_pointer_aea96c333c05ae99211b67a71139031f3}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_m_pointer_a9ab79a1fa4b411e7506e9c58f50a239a}{MPointer<T>}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>address\ ==\ other.address;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_m_pointer_a15e5be89b3d900b4d3d9633f908e8f68}{isValid}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ address\ !=\ -\/1;\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_pointer_a5e66319bff68b8eee0525b492e97aada}{getAddress}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ address;\ \}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Define\ MemoryManager\ separately}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MPOINTER\_H}}
+\DoxyCodeLine{00039\ }
+
+\end{DoxyCode}
