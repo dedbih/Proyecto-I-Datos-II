@@ -15,6 +15,19 @@ MemoryManager::~MemoryManager() {
     free(memoryBlock);
 }
 
+MemoryManager& MemoryManager::getInstance(size_t sizeMB) {
+    static MemoryManager instance(sizeMB);
+    return instance;
+}
+
+void MemoryManager::deallocate(int address) {
+    auto it = memory.find(address);
+    if (it != memory.end()) {
+        delete static_cast<char*>(it->second.first);
+        memory.erase(it);
+    }
+}
+
 std::string MemoryManager::generateDump() const {
     std::ostringstream oss;
     oss << "Memory Status:\n";
