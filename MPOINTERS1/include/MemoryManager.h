@@ -2,50 +2,60 @@
 // Created by Lenovo on 22/3/2025.
 //
 
-#ifndef MEMORYMANAGER_H
-#define MEMORYMANAGER_H
+#ifndef MPOINTER_H
+#define MPOINTER_H
 
-#include <unordered_map>
-#include <stdexcept>
+#include "MemoryManager.h"
 #include <string>
 
-class MemoryManager {
+template <typename T>
+class MPointer {
 private:
-    std::unordered_map<int, void*> memory;
-    int nextAddress = 0;
-    size_t memorySize;
-    char* memoryBlock;
-
-    MemoryManager(size_t sizeMB = 10); // Default 10MB
-    ~MemoryManager();
+    int address;
+    static MemoryManager* manager;
 
 public:
-    static MemoryManager& getInstance(size_t sizeMB = 10);
+    MPointer() : address(-1) {}
+    explicit MPointer(int addr) : address(addr) {}
 
-    template <typename T>
-    int allocate(T value) {
-        if (sizeof(T) > remainingMemory()) {
-            throw std::runtime_error("Not enough memory");
+    ~MPointer() {
+        if (address != -1) {
+            MemoryManager::getInstance().deallocate(address);
         }
-        int addr = nextAddress++;
-        T* obj = new T(value);
-        memory[addr] = static_cast<void*>(obj);
-        return addr;
     }
 
-    template <typename T>
-    T& get(int address) {
-        auto it = memory.find(address);
-        if (it == memory.end()) {
-            throw std::runtime_error("Invalid address");
-        }
-        return *static_cast<T*>(it->second);
+    static MPointer<T> New(T value = T()) {
+        return MPointer<T>(MemoryManager::getInstance().allocate<T>(value));
     }
 
-    void deallocate(int address);
-    size_t remainingMemory() const;
-    std::string generateDump() const;
+    T& operator*() {
+        return MemoryManager::getInstance().get<T>(address);
+    }
+
+    T* operator->() {
+        return &MemoryManager::getInstance().get<T>(address);
+    }
+
+    MPointer<T>& operator=(const MPointer<T>& other) {
+        if (this != &other) {
+            address = other.address;
+        }
+        return *this;
+    }
+
+    bool operator==(const MPointer<T>& other) const {
+        return address == other.address;
+    }
+
+    bool isValid() const { return address != -1; }
+    int getAddress() const { return address; }
+
+    // Network communication
+    static std::string sendCommand(const std::string& cmd);
 };
 
-#endif // MEMORYMANAGER_H
+template <typename T>
+MemoryManager* MPointer<T>::manager = &MemoryManager::getInstance();
+
+#endif // MPOINTER_H
 

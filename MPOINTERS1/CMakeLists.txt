@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(ServerExe
         src/server/main.cpp
         src/server/MemoryManager.cpp
-        src/server/MemoryServer.cpp
 )
 
 # Client executable
@@ -15,9 +14,10 @@ add_executable(ClientExe
         src/client/main.cpp
 )
 
-# Link Winsock for Windows
+# For Windows
 if(WIN32)
     target_link_libraries(ServerExe ws2_32)
+    target_link_libraries(ClientExe ws2_32)
 endif()
 
 # Include directories

@@ -9,25 +9,10 @@ MemoryManager::MemoryManager(size_t sizeMB) {
 }
 
 MemoryManager::~MemoryManager() {
-    for (auto& entry : memory) delete entry.second;
-    free(memoryBlock);
-}
-
-MemoryManager& MemoryManager::getInstance(size_t sizeMB) {
-    static MemoryManager instance(sizeMB);
-    return instance;
-}
-
-void MemoryManager::deallocate(int address) {
-    auto it = memory.find(address);
-    if (it != memory.end()) {
-        delete it->second;
-        memory.erase(it);
+    for (auto& entry : memory) {
+        delete static_cast<char*>(entry.second.first);
     }
-}
-
-size_t MemoryManager::remainingMemory() const {
-    return memorySize - (memory.size() * sizeof(void*));
+    free(memoryBlock);
 }
 
 std::string MemoryManager::generateDump() const {
