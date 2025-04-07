@@ -1,5 +1,0 @@
-# ninja log v6
-15	984	7650784065836952	CMakeFiles/ServerExe.dir/src/server/MemoryManager.cpp.obj	c8c302640953b0b9
-29	994	7650784065962472	CMakeFiles/ClientExe.dir/src/client/main.cpp.obj	bdb27ede2ff797d3
-6	2706	7650784065622076	CMakeFiles/ServerExe.dir/src/server/main.cpp.obj	803026bf6c313d12
-21	2741	7650784065887904	CMakeFiles/ServerExe.dir/src/server/MemoryServer.cpp.obj	6ebdd845ff4c35af

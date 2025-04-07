@@ -1,0 +1,4 @@
+Cannot generate into C:\Users\lasle\Desktop\o-o\U\I Semestre 2025\Datos2\Proyecto-I-Datos-II
+It is already used for project C:\Users\lasle\Desktop\o-o\U\I Semestre 2025\Datos2\Proyecto-I-Datos-II\MPOINTERS1
+
+Please either delete it manually or select another generation directory
