@@ -1,5 +1,0 @@
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/CMakeFiles/ServerExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/CMakeFiles/ClientExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/CMakeFiles/TestExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/CMakeFiles/edit_cache.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/CMakeFiles/rebuild_cache.dir

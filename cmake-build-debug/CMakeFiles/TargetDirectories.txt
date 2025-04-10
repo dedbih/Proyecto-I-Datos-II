@@ -1,5 +1,3 @@
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug/CMakeFiles/ServerExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug/CMakeFiles/ClientExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug/CMakeFiles/TestExe.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/lasle/Desktop/o-o/U/I Semestre 2025/Datos2/Proyecto-I-Datos-II/MPOINTERS1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
