@@ -687,7 +687,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2024.3.3/bin/ninja/win/x64/ninja.exe"
+			"value" : "C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1268,6 +1268,42 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "MemoryManager_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug"
+		},
+		{
+			"name" : "MemoryManager_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "MemoryManager_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

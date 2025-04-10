@@ -1,3 +1,4 @@
-C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/MemoryManager.dir
+C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/MPointerClient.dir
 C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/lasle/Desktop/o-o/Cosas de la U/I Semestre 2025/Datos2/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir

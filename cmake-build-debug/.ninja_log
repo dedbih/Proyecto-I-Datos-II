@@ -1,0 +1,12 @@
+# ninja log v6
+17	572	7659663262710608	build.ninja	beab252cf04fd2f9
+31	4093	7659659979976832	CMakeFiles/MemoryManager.dir/src/server/MemoryManager.cpp.obj	5d88f1762d24848a
+4958	5861	7659615676777995	MemoryManager.exe	406472231c6aa490
+10	29	7659659934258946	clean	54a06fd83fad62cf
+44	2438	7659659980103520	CMakeFiles/MemoryManager.dir/src/client/MPointer.cpp.obj	86b132cd50cfb962
+10	560	7659663262710608	build.ninja	beab252cf04fd2f9
+3	19	7659663263839474	clean	54a06fd83fad62cf
+27	3203	7659664085121981	CMakeFiles/MPointerClient.dir/src/client/MPointer.cpp.obj	a662431c3a5b388f
+3206	4135	7659664116920816	MPointerClient.exe	26e034ae0e82ceb0
+13	4900	7659664084921175	CMakeFiles/MemoryManager.dir/src/server/MemoryManager.cpp.obj	5d88f1762d24848a
+4900	5281	7659664133859580	MemoryManager.exe	406472231c6aa490
