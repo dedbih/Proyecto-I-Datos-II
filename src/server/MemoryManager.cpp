@@ -9,11 +9,7 @@
 #include <cstring>
 #include <winsock2.h>
 #include <ws2tcpip.h>
-
-#pragma comment(lib, "ws2_32.lib")
-#include <string>
-#include <vector>
-
+#include <filesystem>
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -161,7 +157,26 @@ private:
             dumpMemoryState();
             return "OK " + std::to_string(block.id);
         }
-        else if (action == "DELETE") {
+        else if (action == "SET") {
+            uint32_t id;
+            std::string value;
+            iss >> id;
+            iss >> value;  // Leer el valor como string
+
+            std::lock_guard<std::mutex> lock(mutex_);
+            auto it = blocks_.find(id);
+            if (it == blocks_.end()) return "ERROR ID no existe";
+
+            // Verificar que el tamaño del valor coincida con el bloque
+            if (value.size() > it->second.size) {
+                return "ERROR Valor demasiado grande";
+            }
+
+            memcpy(it->second.start, value.data(), value.size());
+            dumpMemoryState();
+            return "OK";
+        }
+        else if (action == "GET") {
             uint32_t id;
             iss >> id;
 
@@ -169,8 +184,9 @@ private:
             auto it = blocks_.find(id);
             if (it == blocks_.end()) return "ERROR ID no existe";
 
-            it->second.ref_count--;
-            return "OK";
+            // Devolver el contenido del bloque como string
+            std::string value(static_cast<char*>(it->second.start), it->second.size);
+            return "OK " + value;
         }
         else if (action == "INCREF") {
             uint32_t id;
@@ -208,6 +224,12 @@ private:
 public:
     MemoryManager(size_t pool_size, const std::string& dump_folder, uint16_t port)
         : pool_size_(pool_size), dump_folder_(dump_folder) {
+
+        // Crear carpeta de dumps si no existe
+        if (!std::filesystem::exists(dump_folder)) {
+            std::filesystem::create_directory(dump_folder);
+        }
+
         if (WSAStartup(MAKEWORD(2, 2), &wsaData_) != 0) {
             throw std::runtime_error("WSAStartup failed");
         }
@@ -226,7 +248,7 @@ public:
         server_addr.sin_addr.s_addr = INADDR_ANY;
         server_addr.sin_port = htons(port);
 
-        if (bind(server_socket_, reinterpret_cast<sockaddr *>(&server_addr), sizeof(server_addr)) == SOCKET_ERROR) {
+        if (bind(server_socket_, reinterpret_cast<sockaddr*>(&server_addr), sizeof(server_addr)) == SOCKET_ERROR) {
             throw std::runtime_error("Error en bind");
         }
 
